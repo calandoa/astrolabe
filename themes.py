@@ -25,6 +25,8 @@ themes: Dict[str, Dict[str, Tuple[float, float, float, float]]] = {
             "text": (0, 0, 0, 1),
             "lines": (0, 0, 0, 1),
             "stick_figures": (0.75, 0.75, 0.75, 1),
-            "alt_az": (0.7, 0.7, 0.7, 1)
+            "alt_az": (0.7, 0.7, 0.7, 1),
+            "blue": (0., 0., 1., 1),
+            "red": (1., 0., 0., 1),
         }
 }

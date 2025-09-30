@@ -259,6 +259,12 @@ class GraphicsContext:
         """
         self.context.clip()
 
+    def clip_reset(self) -> None:
+        """
+        Add a clip
+        """
+        self.context.reset_clip()
+
     def arc(self, centre_x: float, centre_y: float, radius: float, arc_from: float, arc_to: float) -> None:
         """
         Add an arc element to the current path.
@@ -400,16 +406,8 @@ class GraphicsContext:
         extent: Dict[str, float] = self.measure_text(text=text)
 
         # Cairo places top-left of text at specified point. For other alignments, we calculate where this point will be
-        offset_x: float = 0
-        offset_y: float = 0
-        if h_align >= 0:
-            offset_x -= extent['width'] / 2
-        if h_align > 0:
-            offset_x -= extent['width'] / 2
-        if v_align >= 0:
-            offset_y += extent['height'] / 2
-        if v_align > 0:
-            offset_y += extent['height'] / 2
+        offset_x: float = - (h_align+1) * extent['width'] / 2
+        offset_y: float = (v_align+1) * extent['height'] / 2
 
         # Now draw text
         self.context.save()
@@ -630,7 +628,6 @@ class GraphicsContext:
         Undo a matrix transformation to the Cairo drawing context.
         """
         self.context.restore()
-
 
 class BaseComponent:
     """

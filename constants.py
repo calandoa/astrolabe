@@ -23,7 +23,7 @@ The file contains global settings for the astrolabe.
 from math import pi
 
 # Units
-dots_per_inch: float = 200
+dots_per_inch: float = 600
 
 unit_m: float = 1.
 unit_cm: float = 1. / 100
@@ -37,7 +37,7 @@ unit_rev: float = 2. * pi
 margin_fraction: float = 1.02
 
 # Outer radius of astrolabe
-r_1: float = 8.5 * unit_cm
+r_1: float = 8.2 * unit_cm
 
 # Distance between circles drawn on back of mother
 d_12: float = 0.07 * r_1

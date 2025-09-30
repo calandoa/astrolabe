@@ -53,7 +53,8 @@ text: Dict[str, dict] = {
             ],
             "url": "https://in-the-sky.org/astrolabe/index.html",
             "copyright": "\u00A9 Dominic Ford 2010\u20132024",
-            "climate_latitude": "Climate prepared for latitude {:02d}{:s}",
+            #"climate_latitude": "Climate prepared for latitude {:.2f}{:s}",
+            "climate_latitude": "{:.2f}{:s}",
             "name": "Name",
             "directions": ["N", "NNW", "NW", "WNW", "W", "WSW", "SW", "SSW",
                            "S", "SSE", "SE", "ESE", "E", "ENE", "NE", "NNE"],
@@ -91,11 +92,13 @@ text: Dict[str, dict] = {
             ],
             "url": "https://in-the-sky.org/astrolabe/index.html",
             "copyright": "\u00A9 Dominic Ford 2010\u20132024",
-            "climate_latitude": "Climate prepared for latitude {:02d}\u00b0{:s}",
+            #"climate_latitude": "Climate prepared for latitude {:02d}\u00b0{:s}",
+            "climate_latitude": "{:.2f}{:s}",
             "name": "Nom",
             "directions": ["N", "NNO", "NO", "ONO", "O", "OSO", "SO", "SSO",
                            "S", "SSE", "SE", "ESE", "E", "ENE", "NE", "NNE"],
-            "midnight": "Minuit"
+            "midnight": "Minuit",
+            "twilight": {0 : "Horizon", -6 : "Crépuscule civil", -12 : "Crépuscule nautique", -18 : "Crépuscule astronomique" },
         },
     "sv":
         {
