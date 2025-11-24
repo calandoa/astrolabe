@@ -334,7 +334,7 @@ class GraphicsContext:
             self.line_dotted = dotted
 
         if self.line_dotted:
-            self.context.set_dash([1.0 * unit_mm])
+            self.context.set_dash([.002, .002], 0)
         else:
             self.context.set_dash([])
 

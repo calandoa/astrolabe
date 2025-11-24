@@ -93,6 +93,13 @@ class Rule(BaseComponent):
         # Outer radius of shadow scale
         r_12: float = r_1 - d_12 * 10
 
+
+
+        r_12 = r_1 * (1 - 0.03 * (7 + 1.2))
+
+
+
+
         # Subroutine to draw outlines of rule and the alidade
         def rule_draw(context: GraphicsContext, xpos: float, ypos: float, sight: bool) -> None:
             # Draw central hole

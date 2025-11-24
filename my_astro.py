@@ -52,12 +52,15 @@ places = ((43.584533, 7.115050, "Antibes"),
          (41.823150, 8.787917, "Acellasca"),
          )
 
+timezone=1
+
+
 # Render simplified and full astrolabes
 astrolabe_type: str
 for astrolabe_type in ["full"]: #, "simplified"
 
     for latitude, longitude, placename in places[0:1]:
-        
+
         # Boolean flag for which hemisphere we're in
         southern: bool = latitude < 0
 
@@ -76,7 +79,8 @@ for astrolabe_type in ["full"]: #, "simplified"
             "astrolabe_type": astrolabe_type,
             'latitude': latitude,
             'placename': placename,
-            'theme': theme
+            'timezone': timezone,
+            'theme': theme,
         }
 
         # Render the parts of the astrolabe that do not change with geographic location
@@ -85,7 +89,7 @@ for astrolabe_type in ["full"]: #, "simplified"
                 filename="{dir_parts}/mother_front_{abs_lat:02d}{ns}_{lang}_{astrolabe_type}".format(**subs),
                 img_format=format
             )
-        
+
         if True:
             MotherBack(settings=settings).render_to_file(
                 filename="{dir_parts}/mother_back_{abs_lat:02d}{ns}_{lang}_{astrolabe_type}".format(**subs),
@@ -97,8 +101,8 @@ for astrolabe_type in ["full"]: #, "simplified"
                 filename="{dir_parts}/rete_{abs_lat:02d}{ns}_{lang}_{astrolabe_type}".format(**subs),
                 img_format=format
             )
-        
-        if False:
+
+        if True:
             Rule(settings=settings).render_to_file(
                 filename="{dir_parts}/rule_{abs_lat:02d}{ns}_{lang}_{astrolabe_type}".format(**subs),
                 img_format=format

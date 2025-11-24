@@ -62,7 +62,7 @@ text: Dict[str, dict] = {
         },
     "fr":
         {
-            "months": [
+            "Xmonths": [
                 [31, "JANVIER"],
                 [28, "FÉVRIER"],
                 [31, "MARS"],
@@ -75,6 +75,20 @@ text: Dict[str, dict] = {
                 [31, "OCTOBRE"],
                 [30, "NOVEMBRE"],
                 [31, "DÉCEMBRE"]
+            ],
+            "months": [
+                [31, "Janvier"],
+                [28, "Février"],
+                [31, "Mars"],
+                [30, "Avril"],
+                [31, "Mai"],
+                [30, "Juin"],
+                [31, "Juillet"],
+                [31, "Août"],
+                [30, "Septembre"],
+                [31, "Octobre"],
+                [30, "Novembre"],
+                [31, "Décembre"]
             ],
             "zodiacal_constellations": [
                 {"name": "Bélier", "symbol": "\u2648"},

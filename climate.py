@@ -145,7 +145,7 @@ class Climate(BaseComponent):
         horizon_centre: float = 0
         horizon_radius: float = 0
 
-        
+
         for altitude in [-18, -12, -6] + list(range(0,80,2)) + [70, 80]: #+ list(range(5,70,10)
             theta1: float = (-latitude - (90 - altitude)) * unit_deg
             theta2: float = (-latitude + (90 - altitude)) * unit_deg
@@ -180,7 +180,7 @@ class Climate(BaseComponent):
                     (r ** 2 + y ** 2 - r_2 ** 2) / (2 * ((y_b - y_a) / 2) * ((y_a + y_b) / 2)))
                 #start: float = 180 * unit_deg - acos(
                 #    (r ** 2 + y ** 2 - r_2 ** 2) / (2 * ((y_b - y_a) / 2) * ((y_a + y_b) / 2)))
-                start: float = (108  - altitude*.8 - (20 if altitude == 80 else 0)) * unit_deg 
+                start: float = (108  - altitude*.8 - (20 if altitude == 80 else 0)) * unit_deg
                 end: float = -start
                 context.text(text="{:.0f}".format(float(altitude)),
                              x=r * sin(start + (r_2 / r) * 3 * unit_deg),
@@ -198,12 +198,12 @@ class Climate(BaseComponent):
             context.begin_path()
             context.circle(centre_x=0, centre_y=-(y_a + y_b) / 2, radius=(y_b - y_a) / 2)
             context.stroke(dotted=(altitude < 0),
-                           line_width= .3 + .6 * int(altitude == 0) 
-                                + .4 * int(altitude % 5 == 0) 
-                                + .3 * int(altitude % 10 == 0) 
+                           line_width= .3 + .6 * int(altitude == 0)
+                                + .4 * int(altitude % 5 == 0)
+                                + .3 * int(altitude % 10 == 0)
                                 + .4 * int(altitude % 30 == 0),
                            color=theme['text'] if altitude >= 0 else theme['alt_az'])
-                           
+
             if altitude <= 0:
                 context.circular_text(text=text[language]['twilight'][altitude],
                                     centre_x=0, centre_y=-(y_a + y_b) / 2,
@@ -213,7 +213,7 @@ class Climate(BaseComponent):
 
                                     # 50: azimuth=330 + altitude*1.3,  #+ 1.2*latitude
                                     # 40: azimuth=318 + altitude*1.3,  #+ 1.2*latitude
-                                    
+
                 print("LAT", latitude, 282 - latitude/2 + altitude*0.73)
 
         # Find coordinates of P
@@ -235,8 +235,8 @@ class Climate(BaseComponent):
         # Find coordinates of T
         t_x: float = 0
         t_y: float = zh_y + zh_x * tan(theta)
-        
-        
+
+
         print("P:{:.2f} {:.2f}    Z:{:.2f} {:.2f}    T:{:.2f} {:.2f}".format(p_x/unit_cm, p_y/unit_cm, z_x/unit_cm, z_y/unit_cm, t_x/unit_cm, t_y/unit_cm))
 
         # Draw lines of constant azimuth. We draw 16 arcs at 11.25 degree intervals, which cut through the zenith
@@ -279,13 +279,13 @@ class Climate(BaseComponent):
             # Compass direction for the start and end of the line of constant azimuth. Each line of constant azimuth
             # meets the horizon at two opposite points, with opposite compass directions.
             if azimuth_step % 2 == 0:
-                
+
                 def float2text(f):
                     if f % 1 == 0:
                         return str(int(f)) + '°'
                     else:
                         return str(f) + '°'
-                
+
                 direction_start: str = text[language]['directions'][azimuth_step // 2]
                 direction_end: str = text[language]['directions'][azimuth_step // 2 + 8]
 
@@ -444,7 +444,7 @@ class Climate(BaseComponent):
         context.move_to(x=0, y=r_2 if settings['astrolabe_type'] == 'full' else r_4)
         context.line_to(x=0, y=-r_2)
         context.stroke(line_width=1, dotted=False)
-        
+
         #context.clip_reset()
 
         # Finish up
@@ -469,13 +469,13 @@ class Climate(BaseComponent):
 
         context.set_color(color=theme['lines'])
         context.text(text=placename,
-                     x= 0 , 
+                     x= 0 ,
                      y= r_2 - 1.6 * unit_cm,
                      h_align=0, v_align=-0.95, gap=unit_mm,
                      rotation=0)
 
         context.text(text=text[language]['climate_latitude'].format(latitude, "N" if not is_southern else "S"),
-                     x= 0 , 
+                     x= 0 ,
                      y= r_2 - 1.6 * unit_cm,
                      h_align=0, v_align=0.95, gap=unit_mm,
                      rotation=0)
