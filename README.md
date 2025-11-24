@@ -1,3 +1,11 @@
+## Fork from dcf21 repository
+
+Orignal repository was focused on reproducing Geoffrey Chaucer's astrolabe.
+
+This one is focused on providing the most precise one for nowadays use. Climate and back look this way:
+
+![Climate](climate_ex.png) ![Back](back_ex.png)
+
 ## Make your own cardboard model astrolabe
 
 This repository contains Python scripts that can be used to produce a cardboard cut-and-glue kit to make your own model astrolabe.
